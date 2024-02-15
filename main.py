@@ -5,9 +5,7 @@ from datetime import datetime
 import pyodbc
 from datetime import datetime
 import smtplib
-import email.message  # No need to import 'email.message' module separately
-
-# Rest of your code...
+import email.message  
 
 def enviar_email(nome_propriedade, data_checkin, data_checkout, diaria, total_dias, total):
     corpo_email = f"""
@@ -16,9 +14,9 @@ def enviar_email(nome_propriedade, data_checkin, data_checkout, diaria, total_di
 
     msg = email.message.Message()  # This should work fine now
     msg['Subject'] = f"RESERVAS - {nome_propriedade}"
-    msg['From'] = 'iasmincarolinefernandes@gmail.com'
-    msg['To'] = 'iasmincarolinefernandes@gmail.com'
-    password = 'iavefncmncsepmha'
+    msg['From'] = 'de@gmail.com'
+    msg['To'] = 'para@gmail.com'
+    password = 'senha'
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
     
@@ -35,7 +33,7 @@ def enviar_email(nome_propriedade, data_checkin, data_checkout, diaria, total_di
 
 dados_conexao = (
     'Driver={SQL Server};'
-    'Server=BHZ-SIS-0008;'
+    'Server=seu_localhost;'
     'Database=Hospedagem;'
     
 )
@@ -168,25 +166,7 @@ def Cancelar():
     id = int(input('Digite o ID da reserva a ser confirmada: '))
     cursor.execute(f"""UPDATE Reservas SET status = 3 WHERE id = '{id}'""")
  
-# def enviar_email(nome_propriedade, data_checkin, data_checkout, diaria, total_dias, total):
-#     corpo_email = f"""
-#     <p>Reserva realizada!\nConfirme seus dados:\nLocal: '{nome_propriedade}'\nCheck-in: '{data_checkin}'\nCheck-out: '{data_checkout}'\nValor diaria: '{diaria}'\nTotal de diarias: '{total_dias}'\nTotal a pagar: '{total}'<p>
-#     """
 
-#     msg = email.message.Message()
-#     msg['Subject'] = "Dolar está abeixo de R$5,20"
-#     msg['From'] = 'iasmincarolinefernandes@gmail.com'
-#     msg['To'] = 'iasmincarolinefernandes@gmail.com'
-#     password = 'iavefncmncsepmha'
-#     msg.add_header('Content-Type', 'text/html')
-#     msg.set_payload(corpo_email)
-    
-#     s = smtplib.SMTP('smtp.gmail.com: 587')
-#     s.starttls()
-#     s.login(msg['From'], password)
-#     s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
-#     print('Email enviado!')
-     
 login() 
 # caso haja alteração tem que dar o commit
 cursor.commit()
