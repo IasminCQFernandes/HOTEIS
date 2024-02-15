@@ -1,7 +1,7 @@
 # Sistema de Reserva de Propriedades 
 Este é um sistema simples de reserva de propriedades desenvolvido em Python. Ele utiliza um banco de dados SQL Server para armazenar informações sobre clientes, propriedades e reservas.
 
-- ## Funcionalidades
+## Funcionalidades
 Registro de Usuário: Os usuários podem se registrar no sistema fornecendo informações como nome, e-mail, telefone, senha e endereço.
 
 - ### Login de Usuário:
@@ -23,7 +23,9 @@ Os usuários podem cancelar uma reserva existente fornecida ou o ID da reserva.
 Após a reserva de uma propriedade, um e-mail de confirmação é enviado para o endereço de e-mail do usuário.
 
 ## Pré-requisitos 
-Python 3.x Bibliotecas Banco de dados SQL Server
+- Python 3.x 
+- Bibliotecas 
+- Banco de dados SQL Server
 
 ## Instalação e Uso Instale das bibliotecas: ´
 - pip install pyodbc 
